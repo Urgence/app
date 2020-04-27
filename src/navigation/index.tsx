@@ -8,8 +8,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { HomeScreen } from '../views';
 
 // import { createStackNavigator } from '@react-navigation/stack';
-// const Stack = createStackNavigator();
 
+// const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function Navigation() {
@@ -22,8 +22,6 @@ export default function Navigation() {
                         if (route.name === 'Home') {
                             iconName = focused ? 'ios-home' : 'ios-home';
                         } else if (route.name === 'Test') {
-                            iconName = focused ? 'ios-list-box' : 'ios-list';
-                        } else if (route.name === 'Settings') {
                             iconName = focused ? 'ios-list-box' : 'ios-list';
                         }
                         return <Ionicons name={iconName} size={size} color={color}/>;
