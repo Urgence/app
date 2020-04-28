@@ -29,26 +29,36 @@ export default function SearchScreen() {
     const [search, setSearch] = useState('');
     const [hospitals, setHospitals] = useState<any[]>([]);
 
-    const fetchHospital = useCallback(() => {
+    const fetchHospital = () => {
         console.log('fetch');
-        fetch('https://urgence-api.herokuapp.com/api/' + 'hospital')
+        fetch(
+            'https://urgence-api.herokuapp.com/api/' + 'hospital/search',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'query=' + search
+            })
             .then(response => response.json())
             .then(result => {
+                console.log(search);
+                console.log(result.parameters);
                 if (result.records) {
                     setHospitals(result.records);
                 }
             })
             .catch(err => console.log(err))
-    }, [])
+    };
 
     useEffect(() => {
-        console.log('search change');
+        console.log('search change to', search);
         fetchHospital();
     }, [search])
 
-    const hospitalClick = useCallback((hospital) => {
+    const hospitalClick = (hospital) => {
         console.log('hospital click:', hospital.fields.raison_sociale)
-    }, [])
+    };
 
     return (
         <View style={styles.container}>
