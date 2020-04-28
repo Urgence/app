@@ -1,31 +1,32 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Subheading, Title } from 'react-native-paper';
+import { Button, Card, Subheading, Title } from 'react-native-paper';
 import Carousel from '../components/Carousel';
 import Header from '../components/Header';
-import { Button } from 'react-native';
 import { usePosition } from '../utils/usePostition';
+import { ScrollView } from 'react-native';
+import hospitalServices from '../utils/HospitalServices.json';
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
 
     const [hospitals, setHospitals] = useState<any[]>([]);
 
+    const [plus, setPlus] = useState(2);
 
-   const [location,geocode, error] = usePosition()
+    const [location, geocode, error] = usePosition();
 
-
-    console.log('latitude',geocode.latitude);
-    console.log('longitude',geocode.longitude);
-    // let text = 'Waiting..';
-    // if (state.errorMessage) {
-    //     text = state.errorMessage;
-    // } else if (state.location) {
-    //     // text = JSON.stringify(state.location);
-    //     console.log(state.location);
-    //     text = `You are at ${state.location[0].street} ${state.location[0].name}!`
-    // }
 
     const fetchHospital = useCallback(() => {
-        fetch(`https://urgence-api.herokuapp.com/api/hospital`)
+        fetch(`https://urgence-api.herokuapp.com/api/hospital/location`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                latitude: geocode.longitude,
+                longitude: geocode.latitude,
+            })
+        })
             .then(response => response.json())
             .then(result => {
                 if (result.records) {
@@ -50,6 +51,25 @@ export default function HomeScreen() {
                 items={hospitals}
             />}
             <Subheading>QUEL SERVICE CHERCHEZ VOUS ?</Subheading>
+            <ScrollView>
+                {hospitalServices.slice(0,plus).map((item, key) => {
+                    return (
+                        <Card key={key}
+                              style={{margin : 10}}
+                              onPress={() => navigation
+                                  .navigate('Search',
+                                  { query : item.name}
+                        )}>
+                            <Card.Content>
+                                <Title>{item.name}</Title>
+                            </Card.Content>
+                        </Card>
+                    );
+                })}
+                <Button icon="plus"  onPress={() => setPlus(plus+2)}>
+                    Voir Plus
+                </Button>
+            </ScrollView>
         </>
     );
 }

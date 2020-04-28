@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Dentaire",
+    "img" : "."
+  },
+  {
+    "name": "Grossesse",
+    "img" : "."
+  },
+  {
+    "name": "Chirurgie",
+    "img" : "."
+  },
+  {
+    "name": "Radiologie",
+    "img" : "."
+  },
+  {
+    "name": "Toxicologie",
+    "img" : "."
+  },
+  {
+    "name": "Neurologie",
+    "img" : "."
+  }
+]
