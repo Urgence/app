@@ -1,7 +1,8 @@
 import React from 'react';
+import { registerRootComponent } from 'expo';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
-import Navigation from './src/navigation';
+import Navigation from './navigation';
 
 const theme = {
     ...DefaultTheme,
@@ -19,3 +20,4 @@ export default function App() {
         </PaperProvider>
     );
 }
+registerRootComponent(App);
