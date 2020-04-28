@@ -5,7 +5,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { Ionicons } from '@expo/vector-icons';
 
-import { HomeScreen } from '../views';
+import { HomeScreen, EmergencyServicesSreen } from '../views';
+
 
 // import { createStackNavigator } from '@react-navigation/stack';
 
@@ -24,16 +25,17 @@ export default function Navigation() {
                         } else if (route.name === 'Test') {
                             iconName = focused ? 'ios-list-box' : 'ios-list';
                         }
-                        return <Ionicons name={iconName} size={size} color={color}/>;
+                        return <Ionicons name={iconName} size={size} color={color} />;
                     },
                 })}
-                           tabBarOptions={{
-                               activeTintColor: 'tomato',
-                               inactiveTintColor: 'gray',
-                           }}
+                tabBarOptions={{
+                    activeTintColor: 'tomato',
+                    inactiveTintColor: 'gray',
+                }}
             >
-                <Tab.Screen name="Home" component={HomeScreen}/>
-                <Tab.Screen name="Test" component={HomeScreen}/>
+                <Tab.Screen name="Home" component={HomeScreen} />
+                <Tab.Screen name="Test" component={HomeScreen} />
+                <Tab.Screen name="EmergencyService" component={EmergencyServicesSreen} />
             </Tab.Navigator>
         </NavigationContainer>
     );
