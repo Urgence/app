@@ -1,19 +1,18 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-navigation';
 import { Subheading, Title } from 'react-native-paper';
-import styled from 'styled-components';
-
 import Carousel from '../components/Carousel';
-
-const Titles = styled(Title)`
-
-`;
+import { usePosition } from '../utils/getGeoPosition';
 
 
 export default function HomeScreen() {
 
     const [hospitals, setHospitals] = useState<any[]>([]);
+    const {
+        error
+    } = usePosition(true);
 
+    console.log('longitude', usePosition());
     const fetchHospital = useCallback(() => {
         fetch(`https://urgence-api.herokuapp.com/api/hospital`)
             .then(response => response.json())
@@ -32,7 +31,7 @@ export default function HomeScreen() {
 
     return (
         <SafeAreaView>
-            <Titles>Autour de vous ...</Titles>
+            <Title>Autour de vous ...</Title>
             <Subheading>Les Etablissements</Subheading>
             {hospitals && <Carousel
                 style='slide'
