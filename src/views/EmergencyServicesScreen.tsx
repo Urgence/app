@@ -3,7 +3,8 @@ import {
     TouchableOpacity,
     FlatList,
     StyleSheet,
-    Text
+    Text,
+    View
 } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 
@@ -50,7 +51,7 @@ export default function EmergencyServicesScreen() {
     );
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <FlatList
                 data={DATA}
                 renderItem={({ item }) => (
@@ -64,7 +65,7 @@ export default function EmergencyServicesScreen() {
                 keyExtractor={item => item.id}
                 extraData={selected}
             />
-        </SafeAreaView>
+        </View>
     );
 }
 
