@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Button, Card, Subheading, Title } from 'react-native-paper';
+import { ActivityIndicator, Button, Card, Colors, Subheading, Title } from 'react-native-paper';
 import Carousel from '../components/Carousel';
 import Header from '../components/Header';
 import { usePosition } from '../utils/usePostition';
@@ -46,6 +46,7 @@ export default function HomeScreen({navigation}) {
             <Header titleText='Home'/>
             <Title>Autour de vous ...</Title>
             <Subheading>Les Etablissements</Subheading>
+            {hospitals === [] &&  <ActivityIndicator animating={true} color={Colors.red800} />}
             {hospitals && <Carousel
                 style='slide'
                 items={hospitals}

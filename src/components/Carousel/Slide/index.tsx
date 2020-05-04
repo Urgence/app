@@ -1,14 +1,17 @@
 import React from 'react';
-import { ImageBackground, View } from 'react-native';
+import { ImageBackground, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 import { Card, Text } from 'react-native-paper';
+import { NavigationActions } from 'react-navigation';
 
 export const Slide = (props: any) => {
 
     const { data } = props;
 
     return (
-        <View style={styles.slide}>
+        <TouchableOpacity style={styles.slide} onPress={() => {
+            NavigationActions.navigate({ routeName: 'Dicover' }
+            )} }>
             <ImageBackground source={require('../../../../assets/icon.png')} blurRadius={5} style={{ width: 'auto' }}>
                 <Card.Content style={{ ...styles.slideText }}>
                     <Text>{data.fields.raison_sociale}</Text>
@@ -17,7 +20,7 @@ export const Slide = (props: any) => {
                     <Text>{data.fields.num_tel}</Text>
                 </Card.Content>
             </ImageBackground>
-        </View>
+        </TouchableOpacity>
     );
 };
 

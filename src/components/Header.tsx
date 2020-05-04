@@ -14,15 +14,16 @@ function Header({ titleText }) {
 
 const styles = StyleSheet.create({
     headerContainer: {
-        backgroundColor: 'rgba(72,72,72,0.71)'
+        backgroundColor: 'white',
     },
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+
     },
     title: {
-        color: '#ffffff'
+        color: 'black'
     }
 })
 

@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     }
 });
 
-export default function SearchScreen() {
+export default function SearchScreen({navigation}) {
     const [search, setSearch] = useState('');
     const [hospitals, setHospitals] = useState<any[]>([]);
 
@@ -58,6 +58,8 @@ export default function SearchScreen() {
 
     const hospitalClick = (hospital) => {
         console.log('hospital click:', hospital.fields.raison_sociale)
+        navigation.navigate('Discover',
+                { query : hospital})
     };
 
     return (
