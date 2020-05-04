@@ -30,7 +30,6 @@ export default function HomeScreen({navigation}) {
         })
             .then(response => response.json())
             .then(result => {
-                console.log(result)
                 if (result.records) {
                     setHospitals(result.records);
                 }
