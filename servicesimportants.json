@@ -1,0 +1,90 @@
+{
+    "data_version": 1,
+    "results": [
+      {
+        "title": "NUMEROS URGENCE",
+        "items": [
+          {
+            "title": "SAMU",
+            "numero": "15",
+            "detail": "Pour toute urgence vitale, caractérisée par une détresse, l’appel au 15 est une priorité."
+          },
+          {
+            "title": "Police",
+            "numero": "17",
+            "detail": "Vers la gendarmerie ou la police nationale, selon les communes."
+          },
+          {
+            "title": "POMPIERS",
+            "numero": "18",
+            "detail": "Vous pouvez appeler les sapeurs-pompiers lorsqu'une ou des vies sont en danger (malaise, blessure grave, départ de feu, accident de la route, noyade, inondation, etc.)."
+          },
+          {
+            "title": "Numéro d'urgence européen",
+            "numero": "12",
+            "detail": "Depuis un téléphone portable, ce numéro d'appel d'urgence européen fonctionne quel que soit le pays où vous vous trouvez en Europe."
+          },
+          {
+            "title": "SOS Médecin",
+            "numero": "3624",
+            "detail": "Pour une demande de consultation ou tout simplement pour un renseignement. Dans tous les cas, il ne faut pas hésiter à contacter l’organisme pour toute demande spécifique à la santé (gênes, douleurs, maux de tête, rage de dents, etc)."
+          }
+        ]
+      },
+      {
+        "title": "NUMEROS SPECIAUX",
+        "items": [
+          {
+            "title": "Centres antipoison",
+            "numero": "0 825 812 822",
+            "detail": "En cas d'intoxication des médecins sont en ligne 24H/24."
+          },
+          {
+            "title": "CAP ECOUTE ADOLESCENTS",
+            "numero": "0800 33 34 35",
+            "detail": "Numéro vert régional, anonyme et gratuit, sauf week-end et jours de fête."
+          },
+          {
+            "title": "DROGUES ALCOOL TABAC INFO SERVICES",
+            "numero": "0800 23 13 13",
+            "detail": "Numéro vert national, 24h/24, anonyme et gratuit pour toute information sur la toxicomanie."
+          },
+          {
+            "title": "FIL SANTE JEUNES",
+            "numero": "0800 235 236",
+            "detail": ""
+          },
+          {
+            "title": "Jeunes Violences Ecoute",
+            "numero": "0 800 20 22 23",
+            "detail": ""
+          },
+          {
+            "title": "LA SANTE POUR TOUS accès aux soins pour les plus démunis RESO",
+            "numero": "0800 232 600",
+            "detail": "Numéro vert national, 24h/24. Adresses pour accès aux soins des personnes en situation de précarité"
+          },
+          {
+            "title": "PLANNING FAMILIAL",
+            "numero": "0800 115 115",
+            "detail": ""
+          },
+          {
+            "title": "RESO CONSULTATIONS DE DEPANNAGE",
+            "numero": "0800 232 600",
+            "detail": "Numéro vert national, 24h/24, anonyme et gratuit FIL"
+          },
+          {
+            "title": "SANTE JEUNES",
+            "numero": "0801 636 636",
+            "detail": "Numéro azur (Prix d'une communication locale)"
+          },
+          {
+            "title": "SIDA INFO SERVICE",
+            "numero": "0800 840 800",
+            "detail": "Numéro vert national, 24h/24, anonyme et gratuit"
+          }
+        ]
+      }
+    ]
+  }
