@@ -15,7 +15,7 @@ export default function HomeScreen({navigation}) {
     const [location, geocode, error] = usePosition();
 
 
-    const fetchHospital = useCallback(() => {
+    const fetchHospital = () => {
         fetch(`https://urgence-api.herokuapp.com/api/hospital/location`, {
             method: 'POST',
             headers: {
@@ -34,7 +34,7 @@ export default function HomeScreen({navigation}) {
                 }
             })
             .catch(err => console.log(err));
-    }, []);
+    };
 
     useEffect(() => {
         fetchHospital();

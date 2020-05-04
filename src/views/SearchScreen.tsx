@@ -29,7 +29,7 @@ export default function SearchScreen({ route, navigation }) {
     const [search, setSearch] = useState('');
     const [hospitals, setHospitals] = useState<any[]>([]);
     const fetchHospital = () => {
-        console.log('fetch');
+        // console.log('fetch');
         fetch(
             'https://urgence-api.herokuapp.com/api/' + 'hospital/search',
             {
@@ -41,8 +41,8 @@ export default function SearchScreen({ route, navigation }) {
             })
             .then(response => response.json())
             .then(result => {
-                console.log(search);
-                console.log(result.parameters);
+                // console.log(search);
+                // console.log(result.parameters);
                 if (result.records) {
                     setHospitals(result.records);
                 }
@@ -50,12 +50,12 @@ export default function SearchScreen({ route, navigation }) {
             .catch(err => console.log(err));
     };
     useEffect(() => {
-        if (route.params.query) {
+        if (route.params && route.params.query) {
             setSearch(route.params.query);
         }
     }, [route.params]);
     useEffect(() => {
-        console.log('search change to', search);
+        // console.log('search change to', search);
         fetchHospital();
     }, [search]);
 
