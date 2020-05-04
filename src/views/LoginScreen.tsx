@@ -1,16 +1,22 @@
 import React from 'react';
-import { Button, Image, View } from 'react-native';
-
+import { Image, View } from 'react-native';
+import { Button } from 'react-native-paper';
 
 export default function LoginScreen({ navigation }) {
-
-    return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Image source={require('../../assets/urgencelogo.png')}/>
-            <Button
-                title="Trouver un hopital !"
-                onPress={() => navigation.navigate('Home')}
-            />
-        </View>
-    );
+	return (
+		<View
+			style={{
+				flex: 1,
+				alignItems: 'center',
+				justifyContent: 'center',
+				backgroundColor: '#ffffff',
+			}}
+		>
+			<Image source={require('../../assets/urgencelogo.png')} />
+			<Button mode="outlined" onPress={() => navigation.navigate('Home')}>
+				{' '}
+				Trouver un hopital !{' '}
+			</Button>
+		</View>
+	);
 }
