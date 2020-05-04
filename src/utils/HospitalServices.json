@@ -1,0 +1,106 @@
+[
+  {
+    "name": "Dentaire",
+    "img": "."
+  },
+  {
+    "name": "Grossesse",
+    "img": "."
+  },
+  {
+    "name": "Chirurgie",
+    "img": "."
+  },
+  {
+    "name": "Radiologie",
+    "img": "."
+  },
+  {
+    "name": "Médecine générale",
+    "img": "."
+  },
+  {
+    "name": "Toxicologie",
+    "img": "."
+  },
+  {
+    "name": "immunologie",
+    "img": "."
+  },
+  {
+    "name": "radiologie",
+    "img": "."
+  },
+  {
+    "name": "chirurgie",
+    "img": "."
+  },
+  {
+    "name": "pneumologie",
+    "img": "."
+  },
+  {
+    "name": "cardiologie",
+    "img": "."
+  },
+  {
+    "name": "odontologie",
+    "img": "."
+  },
+  {
+    "name": "dermatologie",
+    "img": "."
+  },
+  {
+    "name": "service d'accueil de traitement des urgences",
+    "img": "."
+  },
+  {
+    "name": "traumatologie",
+    "img": "."
+  },
+  {
+    "name": "médecine interne",
+    "img": "."
+  },
+  {
+    "name": "endocrinologie",
+    "img": "."
+  },
+  {
+    "name": "anatomo-pathologie",
+    "img": "."
+  },
+  {
+    "name": "hématologie",
+    "img": "."
+  },
+  {
+    "name": "gastro-entérologie",
+    "img": "."
+  },
+  {
+    "name": "urologie",
+    "img": "."
+  },
+  {
+    "name": "pharmacie",
+    "img": "."
+  },
+  {
+    "name": "maternité",
+    "img": "."
+  },
+  {
+    "name": "Pédiatrie",
+    "img": "."
+  },
+  {
+    "name": "service Des Grands Brûlés",
+    "img": "."
+  },
+  {
+    "name": "Neurologie",
+    "img": "."
+  }
+]

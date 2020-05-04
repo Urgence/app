@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { Ionicons } from '@expo/vector-icons';
 
+import { HomeScreen, SearchScreen } from '../views';
 import { HomeScreen } from '../views';
 import { PlaceInfo } from '../views';
 
@@ -22,8 +23,8 @@ export default function Navigation() {
                         let iconName;
                         if (route.name === 'Home') {
                             iconName = focused ? 'ios-home' : 'ios-home';
-                        } else if (route.name === 'Test') {
-                            iconName = focused ? 'ios-list-box' : 'ios-list';
+                        } else if (route.name === 'Discover') {
+                            iconName = focused ? 'ios-pencil-circle-outline' : 'ios-pencil-circle-outline';
                         }
                         return <Ionicons name={iconName} size={size} color={color}/>;
                     },
@@ -35,6 +36,8 @@ export default function Navigation() {
             >
                 <Tab.Screen name="Home" component={PlaceInfo}/>
                 <Tab.Screen name="Test" component={HomeScreen}/>
+                <Tab.Screen name='Home' component={HomeScreen}/>
+                <Tab.Screen name='Test' component={HomeScreen}/>
             </Tab.Navigator>
         </NavigationContainer>
     );

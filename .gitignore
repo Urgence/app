@@ -13,3 +13,7 @@ web-report/
 .idea/*
 # macOS
 .DS_Store
+yarn.lock
+.env
+/.idea/
+.idea/
