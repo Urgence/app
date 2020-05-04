@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet } from 'react-native';
 import Header from '../components/Header';
 import servicesImportants from '../utils/servicesimportants.json';
 import { Button, Card, List, Paragraph, Title } from 'react-native-paper';
-import dialCall from '../utils/DisCallServices';
+import dialCall from '../utils/disCallServices';
 
 export default function EmergencyServicesScreen({ navigation }) {
     const [plus, setPlus] = useState(2);

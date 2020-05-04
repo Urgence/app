@@ -8,7 +8,7 @@ import hospitalServices from '../utils/HospitalServices.json';
 
 export default function HomeScreen({navigation}) {
 
-    const [hospitals, setHospitals] = useState<any[]>([]);
+    const [hospitals, setHospitals] = useState();
 
     const [plus, setPlus] = useState(2);
 
@@ -46,7 +46,7 @@ export default function HomeScreen({navigation}) {
             <Header titleText='Home'/>
             <Title>Autour de vous ...</Title>
             <Subheading>Les Etablissements</Subheading>
-            {hospitals === [] &&  <ActivityIndicator animating={true} color={Colors.red800} />}
+            {!hospitals &&  <ActivityIndicator animating={true} color={Colors.red800} />}
             {hospitals && <Carousel
                 style='slide'
                 items={hospitals}

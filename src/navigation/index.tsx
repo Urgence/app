@@ -7,22 +7,26 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { EmergencyServicesScreen, HomeScreen, PlaceInfo, SearchScreen } from '../views';
 
- import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
+import LoginScreen from '../views/LoginScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+
 function HomeStack() {
     return (
-        <Stack.Navigator screenOptions={{ headerShown:false }}>
-            <Stack.Screen name="Home" component={HomeScreen}  />
-            <Stack.Screen name="Discover" component={PlaceInfo} />
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Login" component={LoginScreen}/>
+            <Stack.Screen name="Home" component={HomeScreen}/>
+            <Stack.Screen name="Discover" component={PlaceInfo}/>
         </Stack.Navigator>
     );
 }
+
 export default function Navigation() {
     return (
         <NavigationContainer>
-            <Tab.Navigator screenOptions={({ route }) =>
+            <Tab.Navigator initialRouteName='Login' screenOptions={({ route }) =>
                 ({
                     tabBarIcon: ({ focused, color, size }) => {
                         let iconName;
@@ -41,10 +45,15 @@ export default function Navigation() {
                                inactiveTintColor: 'gray',
                            }}
             >
-                <Tab.Screen name="Home" component={HomeStack}/>
+                <Tab.Screen name="Home" component={HomeStack} options={Homeoptions}/>
                 <Tab.Screen name='Search' component={SearchScreen}/>
                 <Tab.Screen name='Information' component={EmergencyServicesScreen}/>
             </Tab.Navigator>
         </NavigationContainer>
     );
 }
+const Homeoptions = (routes) => {
+    if (routes.name === 'Login') {
+        return { tabBarVisible: true };
+    }
+};

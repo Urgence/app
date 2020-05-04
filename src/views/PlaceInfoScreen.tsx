@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, ImageBackground, Dimensions, Text, Linking, Platform } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { Button } from 'react-native-paper';
-import dialCall from '../utils/DisCallServices';
+import dialCall from '../utils/disCallServices';
 
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
