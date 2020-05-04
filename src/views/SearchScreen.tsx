@@ -53,7 +53,7 @@ export default function SearchScreen({ route, navigation }) {
         if (route.params.query) {
             setSearch(route.params.query);
         }
-    }, []);
+    }, [route.params]);
     useEffect(() => {
         console.log('search change to', search);
         fetchHospital();

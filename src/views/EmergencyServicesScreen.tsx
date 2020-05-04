@@ -23,10 +23,10 @@ export default function EmergencyServicesScreen({ navigation }) {
 
     return (<>
             <Header titleText='Emergency'/>
-            <List.Section title="Services D'Urgence">
-                {servicesImportants.slice(0, plus).map((item, key) => {
-                    return (
-                        <ScrollView>
+            <List.Section style={styles.item} title="Services D'Urgence">
+                <ScrollView>
+                    {servicesImportants.slice(0, plus).map((item, key) => {
+                        return (
                             <List.Accordion
                                 key={key}
                                 title={item.title}
@@ -48,10 +48,10 @@ export default function EmergencyServicesScreen({ navigation }) {
                                     )
                                 }
                             </List.Accordion>
-                        </ScrollView>
-                    );
-                })
-                }
+                        );
+                    })
+                    }
+                </ScrollView>
             </List.Section>
         </>
     );
@@ -63,8 +63,7 @@ const styles = StyleSheet.create({
         marginTop: 1,
     },
     item: {
-        backgroundColor: '#f9c2ff',
-        padding: 20,
+        marginBottom: 120,
         marginVertical: 8,
         marginHorizontal: 16,
     },
