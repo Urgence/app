@@ -21,8 +21,8 @@ export default function Navigation() {
                         let iconName;
                         if (route.name === 'Home') {
                             iconName = focused ? 'ios-home' : 'ios-home';
-                        } else if (route.name === 'Test') {
-                            iconName = focused ? 'ios-list-box' : 'ios-list';
+                        } else if (route.name === 'Discover') {
+                            iconName = focused ? 'ios-pencil-circle-outline' : 'ios-pencil-circle-outline';
                         }
                         return <Ionicons name={iconName} size={size} color={color}/>;
                     },
