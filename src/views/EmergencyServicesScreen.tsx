@@ -34,7 +34,7 @@ export default function EmergencyServicesScreen({ navigation }) {
                             >
                                 {
                                     item.items.map((item, key) => (
-                                            <Card.Content key={key}>
+                                            <Card.Content key={key++}>
                                                 <Title>{item.title}</Title>
                                                 <Paragraph>
                                                     {item.detail}

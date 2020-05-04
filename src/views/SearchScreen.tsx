@@ -1,6 +1,6 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
-import { Searchbar, Text, Card } from 'react-native-paper';
+import React, { useEffect, useState } from 'react';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { Card, Searchbar, Text } from 'react-native-paper';
 
 const styles = StyleSheet.create({
     container: {
@@ -25,10 +25,9 @@ const styles = StyleSheet.create({
     }
 });
 
-export default function SearchScreen({navigation}) {
+export default function SearchScreen({ route, navigation }) {
     const [search, setSearch] = useState('');
     const [hospitals, setHospitals] = useState<any[]>([]);
-
     const fetchHospital = () => {
         console.log('fetch');
         fetch(
@@ -48,18 +47,22 @@ export default function SearchScreen({navigation}) {
                     setHospitals(result.records);
                 }
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err));
     };
-
+    useEffect(() => {
+        if (route.params.query) {
+            setSearch(route.params.query);
+        }
+    }, []);
     useEffect(() => {
         console.log('search change to', search);
         fetchHospital();
-    }, [search])
+    }, [search]);
 
     const hospitalClick = (hospital) => {
-        console.log('hospital click:', hospital.fields.raison_sociale)
+        console.log('hospital click:', hospital.fields.raison_sociale);
         navigation.navigate('Discover',
-                { query : hospital})
+            { query: hospital });
     };
 
     return (
@@ -76,7 +79,8 @@ export default function SearchScreen({navigation}) {
                     {
                         hospitals.map(hospital => {
                             return (
-                                <Card style={styles.item} key={hospital.recordid} onPress={() => hospitalClick(hospital)}>
+                                <Card style={styles.item} key={hospital.recordid}
+                                      onPress={() => hospitalClick(hospital)}>
                                     <Card.Content>
                                         <Text>{hospital.fields.raison_sociale}</Text>
                                         <Text>{hospital.fields.adresse_complete}</Text>
@@ -84,7 +88,7 @@ export default function SearchScreen({navigation}) {
                                         <Text>{hospital.fields.num_tel}</Text>
                                     </Card.Content>
                                 </Card>
-                            )
+                            );
                         })
                     }
                 </ScrollView>
