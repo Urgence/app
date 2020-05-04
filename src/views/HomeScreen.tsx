@@ -51,6 +51,7 @@ export default function HomeScreen({ navigation }) {
             {hospitals && <Carousel
                 style='slide'
                 items={hospitals}
+                navigation={navigation}
             />}
             <Subheading>QUEL SERVICE CHERCHEZ VOUS ?</Subheading>
             <ScrollView>

@@ -56,6 +56,7 @@ export const Carousel = (props: any) => {
                         <Slide
                             key={index}
                             data={item}
+                            navigation={props.navigation}
                         />
                     );
                 })}

@@ -9,7 +9,6 @@ import { EmergencyServicesScreen, HomeScreen, PlaceInfo, SearchScreen } from '..
 
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from '../views/LoginScreen';
-import { AsyncStorage } from 'react-native';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();

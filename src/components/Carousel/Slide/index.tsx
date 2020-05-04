@@ -1,21 +1,18 @@
 import React from 'react';
-import { Dimensions, ImageBackground, TouchableOpacity, View } from 'react-native';
+import { ImageBackground, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import { Card, Text } from 'react-native-paper';
-import { NavigationActions } from 'react-navigation';
 
-export const Slide = (props: any) => {
+export const Slide = (props) => {
 
     const { data } = props;
-    const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
+    const { navigation } = props;
 
     return (
-        <TouchableOpacity style={styles.slide} onPress={() => {
-            NavigationActions.navigate({ routeName: 'Dicover' }
-            )} }>
+        <TouchableOpacity style={styles.slide} onPress={() =>  navigation.navigate('Discover',  { query: data })}>
             <ImageBackground
                 source={{ uri: 'https://www.lobservateur.fr/wp-content/uploads/2020/04/Capture-d%E2%80%99e%CC%81cran-2020-04-15-a%CC%80-20.54.43.png' }}
-                 blurRadius={97} style={{    width: '100%', height: '100%',}}>
+                blurRadius={97} style={{ width: '100%', height: '100%', }}>
                 <Card.Content style={{ ...styles.slideText }}>
                     <Text style={{ ...styles.text }}>{data.fields.raison_sociale}</Text>
                     <Text style={{ ...styles.text }}>{data.fields.adresse_complete}</Text>
