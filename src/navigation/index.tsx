@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { Ionicons } from '@expo/vector-icons';
 
-import { HomeScreen } from '../views';
+import { HomeScreen, SearchScreen } from '../views';
 
 // import { createStackNavigator } from '@react-navigation/stack';
 
@@ -32,8 +32,8 @@ export default function Navigation() {
                                inactiveTintColor: 'gray',
                            }}
             >
-                <Tab.Screen name="Home" component={HomeScreen}/>
-                <Tab.Screen name="Test" component={HomeScreen}/>
+                <Tab.Screen name='Home' component={HomeScreen}/>
+                <Tab.Screen name='Test' component={HomeScreen}/>
             </Tab.Navigator>
         </NavigationContainer>
     );
