@@ -16,6 +16,7 @@ export default function HomeScreen({navigation}) {
 
 
     const fetchHospital = () => {
+        if (!(geocode && geocode.longitude && geocode.latitude)) return;
         fetch(`https://urgence-api.herokuapp.com/api/hospital/location`, {
             method: 'POST',
             headers: {
@@ -29,6 +30,7 @@ export default function HomeScreen({navigation}) {
         })
             .then(response => response.json())
             .then(result => {
+                console.log(result)
                 if (result.records) {
                     setHospitals(result.records);
                 }
@@ -38,7 +40,7 @@ export default function HomeScreen({navigation}) {
 
     useEffect(() => {
         fetchHospital();
-    }, []);
+    }, [geocode]);
 
 
     return (
@@ -67,7 +69,7 @@ export default function HomeScreen({navigation}) {
                         </Card>
                     );
                 })}
-                <Button icon="plus"  onPress={() => setPlus(plus+2)}>
+                <Button icon='plus'  onPress={() => setPlus(plus+2)}>
                     Voir Plus
                 </Button>
             </ScrollView>
