@@ -6,6 +6,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
 import { HomeScreen, PlaceInfo, SearchScreen } from '../views';
+import LoginScreen from '../views/LoginScreen';
+import EmergencyServicesScreen from '../views/EmergencyServicesScreen';
 
 // import { createStackNavigator } from '@react-navigation/stack';
 
@@ -21,10 +23,10 @@ export default function Navigation() {
                         let iconName;
                         if (route.name === 'Home') {
                             iconName = focused ? 'ios-home' : 'ios-home';
-                        } else if (route.name === 'Discover') {
-                            iconName = focused ? 'ios-pencil-circle-outline' : 'ios-pencil-circle-outline';
                         } else if (route.name === 'Search') {
-                            iconName = focused ? 'ios-search' : 'ios-search-outline';
+                            iconName = focused ? 'ios-search' : 'ios-search';
+                        }else if (route.name === 'Information') {
+                            iconName = focused ? 'ios-information' : 'ios-information';
                         }
                         return <Ionicons name={iconName} size={size} color={color}/>;
                     },
@@ -34,10 +36,9 @@ export default function Navigation() {
                                inactiveTintColor: 'gray',
                            }}
             >
-                <Tab.Screen name="Discover" component={PlaceInfo}/>
                 <Tab.Screen name="Home" component={HomeScreen}/>
                 <Tab.Screen name='Search' component={SearchScreen}/>
-                <Tab.Screen name='Test' component={HomeScreen}/>
+                <Tab.Screen name='Information' component={EmergencyServicesScreen}/>
             </Tab.Navigator>
         </NavigationContainer>
     );

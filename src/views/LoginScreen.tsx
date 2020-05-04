@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground, Image, Button } from 'react-native';
+import { Button, Image, View } from 'react-native';
 
 
-export default function FirstTime({ navigation }) {
+export default function LoginScreen({ navigation }) {
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Image source={require('../../assets/urgencelogo.png')}></Image>
+            <Image source={require('../../assets/urgencelogo.png')}/>
             <Button
                 title="Trouver un hopital !"
                 onPress={() => navigation.navigate('Home')}

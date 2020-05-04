@@ -1,43 +1,14 @@
 import React, { useState } from 'react';
-import {
-    TouchableOpacity,
-    FlatList,
-    StyleSheet,
-    Text,
-    View
-} from 'react-native';
-import { SafeAreaView } from 'react-navigation';
+import { ScrollView, StyleSheet } from 'react-native';
+import Header from '../components/Header';
+import servicesImportants from '../utils/servicesimportants.json';
+import { Button, Card, List, Paragraph, Title } from 'react-native-paper';
+import dialCall from '../utils/DisCallServices';
 
-const DATA = [
-    {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'First Item',
-    },
-    {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Second Item',
-    },
-    {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Third Item',
-    },
-];
+export default function EmergencyServicesScreen({ navigation }) {
+    const [plus, setPlus] = useState(2);
+    const [expanded, setExpanded] = useState(true);
 
-export default function EmergencyServicesScreen() {
-
-    function Item({ id, title, selected, onSelect }) {
-        return (
-            <TouchableOpacity
-                onPress={() => onSelect(id)}
-                style={[
-                    styles.item,
-                    { backgroundColor: selected ? '#6e3b6e' : '#f9c2ff' },
-                ]}
-            >
-                <Text style={styles.title}>{title}</Text>
-            </TouchableOpacity>
-        );
-    }
     const [selected, setSelected] = React.useState(new Map());
 
     const onSelect = React.useCallback(
@@ -50,22 +21,39 @@ export default function EmergencyServicesScreen() {
         [selected],
     );
 
-    return (
-        <View style={styles.container}>
-            <FlatList
-                data={DATA}
-                renderItem={({ item }) => (
-                    <Item
-                        id={item.id}
-                        title={item.title}
-                        selected={!!selected.get(item.id)}
-                        onSelect={onSelect}
-                    />
-                )}
-                keyExtractor={item => item.id}
-                extraData={selected}
-            />
-        </View>
+    return (<>
+            <Header titleText='Emergency'/>
+            <List.Section title="Services D'Urgence">
+                {servicesImportants.slice(0, plus).map((item, key) => {
+                    return (
+                        <ScrollView>
+                            <List.Accordion
+                                key={key}
+                                title={item.title}
+                                onPress={() => setExpanded(!expanded)}
+                            >
+                                {
+                                    item.items.map((item, key) => (
+                                            <Card.Content key={key}>
+                                                <Title>{item.title}</Title>
+                                                <Paragraph>
+                                                    {item.detail}
+                                                </Paragraph>
+                                                <Button icon="phone"
+                                                        onPress={() => dialCall(Number(item.numero))}>
+                                                    {item.numero}
+                                                </Button>
+                                            </Card.Content>
+                                        )
+                                    )
+                                }
+                            </List.Accordion>
+                        </ScrollView>
+                    );
+                })
+                }
+            </List.Section>
+        </>
     );
 }
 
