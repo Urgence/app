@@ -20,7 +20,15 @@ export const styles = StyleSheet.create({
     width: '100%',
     textAlign: 'left',
     fontSize: 20,
+    display:'flex',
+    alignItems: 'center',
+    marginTop: '10%'
   },
+  text : {
+    fontWeight: 'bold',
+    color:'#000000'
+
+  }
 });
 
 export default styles;

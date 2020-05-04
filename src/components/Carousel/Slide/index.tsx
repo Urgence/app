@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, TouchableOpacity, View } from 'react-native';
+import { Dimensions, ImageBackground, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 import { Card, Text } from 'react-native-paper';
 import { NavigationActions } from 'react-navigation';
@@ -7,17 +7,20 @@ import { NavigationActions } from 'react-navigation';
 export const Slide = (props: any) => {
 
     const { data } = props;
+    const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
     return (
         <TouchableOpacity style={styles.slide} onPress={() => {
             NavigationActions.navigate({ routeName: 'Dicover' }
             )} }>
-            <ImageBackground source={require('../../../../assets/icon.png')} blurRadius={5} style={{ width: 'auto' }}>
+            <ImageBackground
+                source={{ uri: 'https://www.lobservateur.fr/wp-content/uploads/2020/04/Capture-d%E2%80%99e%CC%81cran-2020-04-15-a%CC%80-20.54.43.png' }}
+                 blurRadius={97} style={{    width: '100%', height: '100%',}}>
                 <Card.Content style={{ ...styles.slideText }}>
-                    <Text>{data.fields.raison_sociale}</Text>
-                    <Text>{data.fields.adresse_complete}</Text>
-                    <Text>{data.fields.cp_ville}</Text>
-                    <Text>{data.fields.num_tel}</Text>
+                    <Text style={{ ...styles.text }}>{data.fields.raison_sociale}</Text>
+                    <Text style={{ ...styles.text }}>{data.fields.adresse_complete}</Text>
+                    <Text style={{ ...styles.text }}>{data.fields.cp_ville}</Text>
+                    <Text style={{ ...styles.text }}>{data.fields.num_tel}</Text>
                 </Card.Content>
             </ImageBackground>
         </TouchableOpacity>
