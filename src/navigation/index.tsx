@@ -5,36 +5,61 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { Ionicons } from '@expo/vector-icons';
 
-import { HomeScreen } from '../views';
+import {
+	EmergencyServicesScreen,
+	HomeScreen,
+	PlaceInfo,
+	SearchScreen,
+} from '../views';
 
-// import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
+import LoginScreen from '../views/LoginScreen';
 
-// const Stack = createStackNavigator();
+const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-export default function Navigation() {
-    return (
-        <NavigationContainer>
-            <Tab.Navigator screenOptions={({ route }) =>
-                ({
-                    tabBarIcon: ({ focused, color, size }) => {
-                        let iconName;
-                        if (route.name === 'Home') {
-                            iconName = focused ? 'ios-home' : 'ios-home';
-                        } else if (route.name === 'Test') {
-                            iconName = focused ? 'ios-list-box' : 'ios-list';
-                        }
-                        return <Ionicons name={iconName} size={size} color={color}/>;
-                    },
-                })}
-                           tabBarOptions={{
-                               activeTintColor: 'tomato',
-                               inactiveTintColor: 'gray',
-                           }}
-            >
-                <Tab.Screen name="Home" component={HomeScreen}/>
-                <Tab.Screen name="Test" component={HomeScreen}/>
-            </Tab.Navigator>
-        </NavigationContainer>
-    );
+function HomeStack() {
+	return (
+		<Stack.Navigator screenOptions={{ headerShown: false }}>
+			<Stack.Screen name="Login" component={LoginScreen} />
+			<Stack.Screen name="Home" component={HomeScreen} />
+			<Stack.Screen name="Discover" component={PlaceInfo} />
+		</Stack.Navigator>
+	);
 }
+
+export default function Navigation() {
+	return (
+		<NavigationContainer>
+			<Tab.Navigator
+				initialRouteName="Login"
+				screenOptions={({ route }) => ({
+					tabBarIcon: ({ focused, color, size }) => {
+						let iconName;
+						if (route.name === 'Home') {
+							iconName = focused ? 'ios-home' : 'ios-home';
+						} else if (route.name === 'Search') {
+							iconName = focused ? 'ios-search' : 'ios-search';
+						} else if (route.name === 'Information') {
+							iconName = focused ? 'ios-information' : 'ios-information';
+						}
+						return <Ionicons name={iconName} size={size} color={color} />;
+					},
+				})}
+				tabBarOptions={{
+					activeTintColor: 'tomato',
+					inactiveTintColor: 'gray',
+				}}
+			>
+				<Tab.Screen name="Home" component={HomeStack} />
+				<Tab.Screen name="Search" component={SearchScreen} />
+				<Tab.Screen name="Information" component={EmergencyServicesScreen} />
+			</Tab.Navigator>
+		</NavigationContainer>
+	);
+}
+// const Homeoptions = (routes) => {
+//     if (routes.name === 'Login') {
+//         return { tabBarVisible: true };
+//     }
+// };
