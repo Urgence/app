@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
 export default function PlaceInfo({ route, navigation }) {
 	const [data, setData] = useState<any>();
 	useEffect(() => {
-		console.log('QUERY', route.params.query.fields);
+		// console.log('QUERY', route.params.query.fields);
 		setData(route.params.query.fields);
 	}, []);
 	return (
