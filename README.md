@@ -1,6 +1,7 @@
 ## Urgence  APP 
 
 
+
 ## Installation
 
 ```bash
@@ -11,8 +12,6 @@ $ cp .env.sample .env
 ## Running the app
 
 ```bash
-
-$ yarn 
 
 # start
 $ yarn start
