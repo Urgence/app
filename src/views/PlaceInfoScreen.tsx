@@ -73,16 +73,12 @@ export default function PlaceInfo({ route, navigation }) {
 									{data.raison_sociale}
 								</Paragraph>
 								<Paragraph>
-									<Text style={{ fontWeight: 'bold' }}>
-										{' '}
-										Date d'ouverture:{' '}
-									</Text>
+									<Text style={{ fontWeight: 'bold' }}>Date d'ouverture:</Text>
 									{data.date_ouverture}
 								</Paragraph>
 								<Paragraph>
 									<Text style={{ fontWeight: 'bold' }}>
-										{' '}
-										Type d'etablissment:{' '}
+										Type d'etablissment:
 									</Text>
 									{data.type_etablissement}
 								</Paragraph>
@@ -109,14 +105,17 @@ export default function PlaceInfo({ route, navigation }) {
 						<MapView
 							style={styles.mapStyle}
 							region={{
-								latitude: data.lat,
-								longitude: data.lng,
+								latitude: Number(data.lat),
+								longitude: Number(data.lng),
 								latitudeDelta: 0.0922,
 								longitudeDelta: 0.0421,
 							}}
 						>
 							<Marker
-								coordinate={{ latitude: data.lat, longitude: data.lng }}
+								coordinate={{
+									latitude: Number(data.lat),
+									longitude: Number(data.lng),
+								}}
 								title={data.raison_sociale}
 							/>
 						</MapView>
