@@ -15,7 +15,7 @@ export default function LoginScreen({ navigation }) {
 			<Image source={require('../../assets/urgencelogo.png')} />
 			<Button mode="outlined" onPress={() => navigation.navigate('Home')}>
 				{' '}
-				Trouver un hopital !{' '}
+				Trouver un hopital !
 			</Button>
 		</View>
 	);
