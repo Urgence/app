@@ -22,8 +22,8 @@ export default function EmergencyServicesScreen({ navigation }) {
     );
 
     return (<>
-            <Header titleText='Emergency'/>
-            <List.Section style={styles.item} title="Services D'Urgence">
+            <Header titleText='Urgence'/>
+            <List.Section style={styles.item} title="Services D'urgence">
                 <ScrollView>
                     {servicesImportants.slice(0, plus).map((item, key) => {
                         return (
